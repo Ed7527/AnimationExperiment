@@ -1,5 +1,8 @@
 package com.edwardtorpy.animationexperiment;
 
+import android.os.CountDownTimer;
+import android.os.Handler;
+import android.support.annotation.Px;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -9,13 +12,22 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    public void enterNumber (View view) {
-        EditText numberText = (EditText) findViewById(R.id.editText);
-        ImageView image = (ImageView) findViewById(R.id.imageView);
+    final Handler handler = new Handler();
 
-        float percentage  = Float.valueOf(numberText.getText().toString());
+    public void fillBucket(View view) {
 
-        image.animate().translationYBy(percentage);
+        ImageView fillImage = (ImageView) findViewById(R.id.imageView7);
+
+        for (int i = 0; i < 180; i++) {
+            fillImage.scrollBy(0, 1);
+
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+
+                }
+            },1000);
+        }
 
     }
 
